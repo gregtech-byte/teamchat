@@ -1,2 +1,2 @@
 # TeamChat
-A real-time team chat application built with React, TypeScript, and Firebase.
+A real-time team chat app built with React, TypeScript, and Firebase.
