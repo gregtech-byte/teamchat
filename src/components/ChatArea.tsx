@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { Hash, Lock, Search, X, Bell } from 'lucide-react'
+import { Hash, Lock, Search, X } from 'lucide-react'
 import { useChat } from '../context/ChatContext'
 import MessageBubble from './MessageBubble'
 import MessageInput from './MessageInput'
