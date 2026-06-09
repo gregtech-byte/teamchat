@@ -11,7 +11,7 @@ const STATUSES: { value: ChatUser['status']; label: string; color: string }[] = 
 ]
 
 export default function StatusPicker({ onClose }: { onClose: () => void }) {
-  const { updateUserStatus, members } = useChat()
+  const { updateUserStatus } = useChat()
   const [statusMessage, setStatusMessage] = useState('')
   const [loading, setLoading] = useState(false)
 
