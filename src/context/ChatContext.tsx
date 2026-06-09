@@ -2,7 +2,7 @@ import React, { createContext, useContext, useState, useEffect, useCallback, use
 import {
   collection, addDoc, onSnapshot, query, orderBy,
   serverTimestamp, doc, updateDoc, getDoc, deleteDoc,
-  setDoc, where, getDocs,
+  setDoc,
 } from 'firebase/firestore'
 import { db } from '../firebase'
 import { useAuth } from './AuthContext'
