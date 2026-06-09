@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Hash, ChevronDown, Plus, LogOut, Sun, Moon, Lock, Search, X, Bell } from 'lucide-react'
+import { Hash, ChevronDown, Plus, LogOut, Sun, Moon, Lock } from 'lucide-react'
 import { useChat } from '../context/ChatContext'
 import { useAuth } from '../context/AuthContext'
 import { useTheme } from '../context/ThemeContext'
