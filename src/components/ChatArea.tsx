@@ -26,6 +26,7 @@ export default function ChatArea() {
   return (
     <div className="flex flex-1 min-w-0 h-full">
       <div className="flex flex-col flex-1 min-w-0 h-full">
+        {/* Header */}
         <div className="flex items-center gap-2 px-5 py-3 border-b border-border bg-main flex-shrink-0">
           {channel.isPrivate ? <Lock size={15} className="text-muted flex-shrink-0" /> : <Hash size={15} className="text-muted flex-shrink-0" />}
           <h2 className="font-semibold text-primary">{channel.name}</h2>
@@ -46,6 +47,7 @@ export default function ChatArea() {
           </div>
         </div>
 
+        {/* Search bar */}
         {showSearch && (
           <div className="px-4 py-2 border-b border-border bg-main flex-shrink-0">
             <div className="relative">
@@ -72,6 +74,7 @@ export default function ChatArea() {
           </div>
         )}
 
+        {/* Messages */}
         <div className="flex-1 overflow-y-auto scrollbar-thin py-2">
           {!isSearching && messages.length === 0 && (
             <div className="flex flex-col items-center justify-center h-full text-center px-8">
@@ -82,19 +85,27 @@ export default function ChatArea() {
               <p className="text-sm text-muted">{channel.description || 'Send the first message!'}</p>
             </div>
           )}
+
           {isSearching && searchResults.length === 0 && (
             <div className="flex flex-col items-center justify-center h-full text-center px-8">
               <p className="text-muted text-sm">No messages match "{searchQuery}"</p>
             </div>
           )}
+
           {displayMessages.map((msg, i) => (
             <MessageBubble key={msg.id} message={msg} prevMessage={displayMessages[i - 1]} />
           ))}
+
+          {/* Typing indicator */}
           {typingUsers.length > 0 && (
             <div className="flex items-center gap-2 px-4 py-2">
               <div className="flex gap-0.5">
                 {[0, 1, 2].map(i => (
-                  <span key={i} className="w-1.5 h-1.5 bg-indigo-400 rounded-full animate-bounce" style={{ animationDelay: `${i * 0.15}s` }} />
+                  <span
+                    key={i}
+                    className="w-1.5 h-1.5 bg-indigo-400 rounded-full animate-bounce"
+                    style={{ animationDelay: `${i * 0.15}s` }}
+                  />
                 ))}
               </div>
               <span className="text-xs text-muted">
@@ -102,10 +113,14 @@ export default function ChatArea() {
               </span>
             </div>
           )}
+
           <div ref={bottomRef} />
         </div>
+
+        {/* Input */}
         {!isSearching && <MessageInput placeholder={`Message #${channel.name}`} />}
       </div>
+
       <MemberPanel />
     </div>
   )
